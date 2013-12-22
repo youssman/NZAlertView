@@ -92,7 +92,7 @@ Alternatively you can directly add source files to your project.
 
 ```
 
-##Delegate
+###Delegate
 
 * All delegates are optional
 
@@ -108,7 +108,7 @@ Alternatively you can directly add source files to your project.
 
 ```
 
-#Setters and getters
+###Setters and getters
 
 ```objetive-c
 @property (nonatomic, assign) id delegate;
@@ -119,7 +119,7 @@ Alternatively you can directly add source files to your project.
 @property (nonatomic, copy) UIColor *statusBarColor;
 ```
 
-##Images and colors
+###Images and colors
 
 * If you want to change, the images are in the bundle: `NZAlertView-Icons.budle`
 * To customize the colors, change the category `UIColor-StyleColor`
