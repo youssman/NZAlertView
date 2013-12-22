@@ -1,19 +1,16 @@
 #NZAlertView
 
 Simple and intuitive alert view. Similar to push notification effect.
-
 This class uses UIAlertView default methods and protocols.
 
-Works on iPhones and iPads __only in portrait mode__.
-
 <p align="center">
-  <img src="http://s8.postimg.org/ebibmu79x/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="714" height="350">
+  <img src="http://s8.postimg.org/ebibmu79x/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="500" height="250">
 </p>
-
+<br/>
 <p align="center">
-  <a href="http://youtu.be/pViRzfq1GIk"><img src="http://s30.postimg.org/jeje4yc3l/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="600" height="350"></a>
+  <a href="http://youtu.be/pViRzfq1GIk"><img src="http://s30.postimg.org/jeje4yc3l/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="500" height="300"></a>
 </p>
-
+<br/>
 [![Build Status](https://api.travis-ci.org/NZN/NZAlertView.png)](https://api.travis-ci.org/NZN/NZAlertView.png)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/v/NZAlertView/badge.png)](http://beta.cocoapods.org/?q=NZAlertView)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/p/NZAlertView/badge.png)](http://beta.cocoapods.org/?q=NZAlertView)
@@ -37,13 +34,13 @@ NZAlertView use [UIImage-Helpers](https://github.com/NZN/UIImage-Helpers) projec
 * Add a pod entry for NZAlertView to your Podfile:
 
 ```
-`pod 'NZAlertView', '~> 0.0.1'`
+pod 'NZAlertView', '~> 0.0.1'
 ```
 
 * Install the pod(s) by running:
 
 ```
-`pod install`
+pod install
 ```
 
 ### Source files
@@ -55,7 +52,77 @@ Alternatively you can directly add source files to your project.
 
 ## Usage
 
-Soon...
+###Info
+
+* Works at __iPad__ and __iPhone__
+* Only works at __portrait mode__
+* The alert duration time can be modified (default: __5 seconds__)
+* The animation duration time can be modified (default: __0.6 seconds__)
+* The status bar color can be modified (default: __alert view color__)
+* Only 1 alert is displayed at a time
+* Delegates are similar to `UIAlertView`
+
+
+###Styles
+
+* NZAlertStyleError
+* NZAlertStyleSuccess
+* NZAlertStyleInfo
+
+###Show
+
+```objetive-c
+#import "NZAlertView.h"
+...
+{
+    // There are several ways to init, just look at the class header
+    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess
+                                                      title:@"Alert View"
+                                                    message:@"This is an alert example."
+                                                   delegate:nil];
+                                                   
+	[alert show];      
+	
+	// or
+	
+	[alert showWithCompletion:^{
+    NSLog(@"Alert with completion handler");
+	}];                                            
+}
+
+```
+
+##Delegate
+
+* All delegates are optional
+
+```objetive-c
+#import "NZAlertViewDelegate.h"
+...
+
+- (void)willPresentNZAlertView:(NZAlertView *)alertView;
+- (void)didPresentNZAlertView:(NZAlertView *)alertView;
+
+- (void)NZAlertViewWillDismiss:(NZAlertView *)alertView;
+- (void)NZAlertViewDidDismiss:(NZAlertView *)alertView;
+
+```
+
+#Setters and getters
+
+```objetive-c
+@property (nonatomic, assign) id delegate;
+@property (nonatomic, assign) NZAlertStyle alertViewStyle;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, readonly, getter = isVisible) BOOL visible;
+@property (nonatomic, copy) UIColor *statusBarColor;
+```
+
+##Images and colors
+
+* If you want to change, the images are in the bundle: `NZAlertView-Icons.budle`
+* To customize the colors, change the category `UIColor-StyleColor`
 
 ## License
 
