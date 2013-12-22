@@ -55,6 +55,7 @@ Alternatively you can directly add source files to your project.
 ###Info
 
 * Works at __iPad__ and __iPhone__
+* Works with or without status bar 
 * Only works at __portrait mode__
 * The alert duration time can be modified (default: __5 seconds__)
 * The animation duration time can be modified (default: __0.6 seconds__)
