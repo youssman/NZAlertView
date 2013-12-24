@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   
   s.dependency 'UIImage-Helpers', '~> 0.0.1'
   s.source_files = 'NZAlertView/**/*.{h,m}'
-  s.resources = ['NZAlertView/NZAlertView-Icons.bundle', 'NZAlertView/NZAlertView.xib']
+  s.resources = ['NZAlertView/NZAlertView-Icons.bundle', 'NZAlertView/Views/NZAlertView.xib']
   s.source = { :git => 'https://github.com/NZN/NZAlertView.git', :tag => '0.0.2' }
 end
