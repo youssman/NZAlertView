@@ -34,7 +34,7 @@ NZAlertView use [UIImage-Helpers](https://github.com/NZN/UIImage-Helpers) projec
 * Add a pod entry for NZAlertView to your Podfile:
 
 ```
-pod 'NZAlertView', '~> 0.0.1'
+pod 'NZAlertView', '~> 0.0.2'
 ```
 
 * Install the pod(s) by running:
