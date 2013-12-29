@@ -1,4 +1,4 @@
-#NZAlertView
+#NZAlertView ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
 Simple and intuitive alert view. Similar to push notification effect.
 This class uses UIAlertView default methods and protocols.
