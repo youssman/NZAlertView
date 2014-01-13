@@ -193,16 +193,18 @@ static BOOL IsPresenting;
     self.backgroundView.image = blurredSnapshot;
     self.backgroundView.alpha = 0;
     
+    int index = [[application keyWindow].subviews count];
+    
     if (!application.statusBarHidden) {
         frame = self.statusBarView.frame;
         frame.origin.y = CGRectGetMinY(self.frame);
         self.statusBarView.frame = frame;
         
-        [[application keyWindow] insertSubview:self.statusBarView atIndex:1];
+        [[application keyWindow] insertSubview:self.statusBarView atIndex:index];
     }
     
-    [[application keyWindow] insertSubview:self atIndex:1];
-    [[application keyWindow] insertSubview:self.backgroundView atIndex:1];
+    [[application keyWindow] insertSubview:self atIndex:index];
+    [[application keyWindow] insertSubview:self.backgroundView atIndex:index];
     
     CGRect viewFrame = self.view.frame;
     viewFrame.origin.y = [self originY];
