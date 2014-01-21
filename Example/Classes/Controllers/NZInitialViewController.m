@@ -105,6 +105,7 @@
                                                    delegate:self];
     
     //[alert setStatusBarColor:[UIColor greenColor]];
+    //[alert setTextAlignment:NSTextAlignmentCenter];
     
     if (self.swtCompletionHandler.on) {
         [alert showWithCompletion:^{

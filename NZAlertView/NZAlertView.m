@@ -154,6 +154,14 @@ static BOOL IsPresenting;
     self.statusBarView.backgroundColor = statusBarColor;
 }
 
+- (void)setTextAlignment:(NSTextAlignment)textAlignment
+{
+    _textAlignment = textAlignment;
+    
+    self.lbTitle.textAlignment = textAlignment;
+    self.lbMessage.textAlignment = textAlignment;
+}
+
 - (void)show
 {
     [self showWithCompletion:nil];
