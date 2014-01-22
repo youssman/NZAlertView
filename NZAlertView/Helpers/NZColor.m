@@ -1,14 +1,14 @@
 //
-//  UIColor+StyleColor.m
+//  NZColor.m
 //  NZAlertView
 //
-//  Created by Bruno Furtado on 18/12/13.
-//  Copyright (c) 2013 No Zebra Network. All rights reserved.
+//  Created by Bruno Tortato Furtado on 21/01/14.
+//  Copyright (c) 2014 No Zebra Network. All rights reserved.
 //
 
-#import "UIColor+StyleColor.h"
+#import "NZColor.h"
 
-@implementation UIColor (StyleColor)
+@implementation NZColor
 
 #pragma mark -
 #pragma mark - Public methods
