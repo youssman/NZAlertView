@@ -60,6 +60,7 @@ Alternatively you can directly add source files to your project.
 * The alert duration time can be modified (default: __5 seconds__)
 * The animation duration time can be modified (default: __0.6 seconds__)
 * The status bar color can be modified (default: __alert view color__)
+* The text alignment can be changed (default: __left alignment__)
 * Only 1 alert is displayed at a time
 * Delegates are similar to `UIAlertView`
 
@@ -82,6 +83,9 @@ Alternatively you can directly add source files to your project.
                                                     message:@"This is an alert example."
                                                    delegate:nil];
                                                    
+    [alert setStatusBarColor:[UIColor greenColor]];
+    [alert setTextAlignment:NSTextAlignmentCenter];
+
 	[alert show];      
 	
 	// or
@@ -118,12 +122,13 @@ Alternatively you can directly add source files to your project.
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, readonly, getter = isVisible) BOOL visible;
 @property (nonatomic, copy) UIColor *statusBarColor;
+@property (nonatomic) NSTextAlignment textAlignment;
 ```
 
 ###Images and colors
 
 * If you want to change, the images are in the bundle: `NZAlertView-Icons.budle`
-* To customize the colors, change the category `UIColor-StyleColor`
+* To customize the colors, extend the `NZAlertViewColor` class and override the methods: `errorColor`, `infoColor` and `successColor`.
 
 ## License
 
