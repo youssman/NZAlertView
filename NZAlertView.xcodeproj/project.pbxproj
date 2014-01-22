@@ -19,7 +19,7 @@
 		F859CA4E1861D10900CCB7A2 /* NZInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F859CA4D1861D10900CCB7A2 /* NZInitialViewController.m */; };
 		F859CA541861D25700CCB7A2 /* NZAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F859CA531861D25700CCB7A2 /* NZAlertView.m */; };
 		F87CB8B318663B3900CEFFE7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F87CB8B518663B3900CEFFE7 /* Main_iPad.storyboard */; };
-		F8930AB4188F406F005458ED /* NZColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F8930AB3188F406F005458ED /* NZColor.m */; };
+		F8930AB4188F406F005458ED /* NZAlertViewColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F8930AB3188F406F005458ED /* NZAlertViewColor.m */; };
 		F8A639CF186677700098DFE1 /* NZAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8A639CE186677700098DFE1 /* NZAlertView.xib */; };
 		F8D4007E186476D400588776 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D4007D186476D400588776 /* QuartzCore.framework */; };
 		F8D40080186476D900588776 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D4007F186476D900588776 /* Accelerate.framework */; };
@@ -47,8 +47,8 @@
 		F859CA521861D25700CCB7A2 /* NZAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZAlertView.h; sourceTree = "<group>"; };
 		F859CA531861D25700CCB7A2 /* NZAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZAlertView.m; sourceTree = "<group>"; };
 		F87CB8B418663B3900CEFFE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		F8930AB2188F406F005458ED /* NZColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZColor.h; sourceTree = "<group>"; };
-		F8930AB3188F406F005458ED /* NZColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZColor.m; sourceTree = "<group>"; };
+		F8930AB2188F406F005458ED /* NZAlertViewColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZAlertViewColor.h; sourceTree = "<group>"; };
+		F8930AB3188F406F005458ED /* NZAlertViewColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NZAlertViewColor.m; sourceTree = "<group>"; };
 		F8A639CE186677700098DFE1 /* NZAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NZAlertView.xib; sourceTree = "<group>"; };
 		F8A639D1186677750098DFE1 /* NZAlertViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NZAlertViewDelegate.h; sourceTree = "<group>"; };
 		F8D4007D186476D400588776 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -172,8 +172,8 @@
 		F859CA5D1861DE8700CCB7A2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F8930AB2188F406F005458ED /* NZColor.h */,
-				F8930AB3188F406F005458ED /* NZColor.m */,
+				F8930AB2188F406F005458ED /* NZAlertViewColor.h */,
+				F8930AB3188F406F005458ED /* NZAlertViewColor.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 				F859CA4E1861D10900CCB7A2 /* NZInitialViewController.m in Sources */,
 				F859CA541861D25700CCB7A2 /* NZAlertView.m in Sources */,
 				F859CA491861D08600CCB7A2 /* main.m in Sources */,
-				F8930AB4188F406F005458ED /* NZColor.m in Sources */,
+				F8930AB4188F406F005458ED /* NZAlertViewColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

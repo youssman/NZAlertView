@@ -8,7 +8,7 @@
 
 #import "NZAlertView.h"
 #import "NZAlertViewDelegate.h"
-#import "NZColor.h"
+#import "NZAlertViewColor.h"
 #import "UIImage+Blur.h"
 #import "UIImage+Screenshot.h"
 
@@ -130,17 +130,17 @@ static BOOL IsPresenting;
     switch (alertViewStyle) {
         case NZAlertStyleError:
             path = [path stringByAppendingString:@"AlertViewErrorIcon"];
-            color = [NZColor errorColor];
+            color = [NZAlertViewColor errorColor];
             break;
             
         case NZAlertStyleInfo:
             path = [path stringByAppendingString:@"AlertViewInfoIcon"];
-            color = [NZColor infoColor];
+            color = [NZAlertViewColor infoColor];
             break;
             
         case NZAlertStyleSuccess:
             path = [path stringByAppendingString:@"AlertViewSucessIcon"];
-            color = [NZColor successColor];
+            color = [NZAlertViewColor successColor];
             break;
     }
     
