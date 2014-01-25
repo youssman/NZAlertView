@@ -201,7 +201,7 @@ static BOOL IsPresenting;
     self.backgroundView.image = blurredSnapshot;
     self.backgroundView.alpha = 0;
     
-    int index = [[application keyWindow].subviews count];
+    NSInteger index = [[application keyWindow].subviews count];
     
     if (!application.statusBarHidden) {
         frame = self.statusBarView.frame;
