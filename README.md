@@ -137,3 +137,10 @@ This code is distributed under the terms and conditions of the [MIT license](LIC
 ## Change-log
 
 A brief summary of each NZAlertView release can be found on the [wiki](https://github.com/NZN/NZAlertView/wiki/Change-log).
+
+
+##To-do Items
+
+###Orientation
+
+- Support for landscape mode
