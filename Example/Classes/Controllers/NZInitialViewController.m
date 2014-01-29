@@ -104,7 +104,7 @@
                                                     message:@"This is an alert example."
                                                    delegate:self];
     
-    //[alert setStatusBarColor:[UIColor greenColor]];
+    [alert setStatusBarColor:[UIColor colorWithRed:0.897 green:0.324 blue:0.044 alpha:1.000]];
     //[alert setTextAlignment:NSTextAlignmentCenter];
     
     if (self.swtCompletionHandler.on) {
