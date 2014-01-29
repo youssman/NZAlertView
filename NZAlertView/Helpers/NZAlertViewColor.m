@@ -15,17 +15,17 @@
 
 + (UIColor *)errorColor
 {
-    return [UIColor colorWithRed:0.986 green:0.000 blue:0.027 alpha:1.000];
+    return [UIColor colorWithRed:0.655 green:0.000 blue:0.060 alpha:1.000];
 }
 
 + (UIColor *)infoColor
 {
-    return [UIColor colorWithRed:0.010 green:0.235 blue:0.998 alpha:1.000];
+    return [UIColor colorWithRed:0.988 green:0.306 blue:0.180 alpha:1.000];
 }
 
 + (UIColor *)successColor
 {
-    return [UIColor colorWithRed:0.082 green:0.621 blue:0.010 alpha:1.000];
+    return [UIColor colorWithRed:0.078 green:0.596 blue:0.243 alpha:1.000];
 }
 
 @end
