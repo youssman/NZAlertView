@@ -141,6 +141,10 @@ A brief summary of each NZAlertView release can be found on the [wiki](https://g
 
 ##To-do Items
 
+###Layout
+
+- Black overlay when alert will display
+
 ###Orientation
 
 - Support for landscape mode
