@@ -55,12 +55,6 @@ typedef void(^NZAlertViewCompletion)(void);
             message:(NSString *)message
            delegate:(id)delegate;
 
-- (id)initWithStyle:(NZAlertStyle)style
-     statusBarColor:(UIColor *)statusBarColor
-              title:(NSString *)title
-            message:(NSString *)message
-           delegate:(id)delegate;
-
 - (void)show;
 - (void)showWithCompletion:(NZAlertViewCompletion)completion;
 
