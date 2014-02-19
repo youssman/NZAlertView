@@ -25,7 +25,6 @@ static BOOL IsPresenting;
 @property (strong, nonatomic) IBOutlet UILabel *lbMessage;
 @property (strong, nonatomic) IBOutlet UIImageView *imgIcon;
 
-@property (strong, nonatomic) UIView *statusBarView;
 @property (strong, nonatomic) UIView *backgroundBlackView;
 @property (strong, nonatomic) UIImageView *backgroundView;
 @property (strong, nonatomic) NZAlertViewCompletion completion;
@@ -69,10 +68,6 @@ static BOOL IsPresenting;
         self.backgroundBlackView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.2f];
         self.backgroundBlackView.userInteractionEnabled = YES;
         
-        frame = self.view.frame;
-        frame.size.height = CGRectGetHeight([[UIApplication sharedApplication] statusBarFrame]);
-        self.statusBarView = [[UIView alloc] initWithFrame:frame];
-
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
         [self.backgroundBlackView addGestureRecognizer:gesture];
     }
@@ -95,11 +90,6 @@ static BOOL IsPresenting;
 
 - (id)initWithStyle:(NZAlertStyle)style title:(NSString *)title message:(NSString *)message delegate:(id)delegate
 {
-    return [self initWithStyle:style statusBarColor:nil title:title message:message delegate:delegate];
-}
-
-- (id)initWithStyle:(NZAlertStyle)style statusBarColor:(UIColor *)statusBarColor title:(NSString *)title message:(NSString *)message delegate:(id)delegate
-{
     self = [self init];
     
     if (self) {
@@ -110,8 +100,6 @@ static BOOL IsPresenting;
         self.title = title;
         self.message = message;
         self.alertViewStyle = style;
-        
-        [self setStatusBarColor:statusBarColor];
         
         if ([delegate conformsToProtocol:@protocol(NZAlertViewDelegate)]) {
             self.delegate = delegate;
@@ -153,11 +141,6 @@ static BOOL IsPresenting;
     self.lbMessage.textColor = color;
 }
 
-- (void)setStatusBarColor:(UIColor *)statusBarColor
-{
-    self.statusBarView.backgroundColor = statusBarColor;
-}
-
 - (void)setTextAlignment:(NSTextAlignment)textAlignment
 {
     _textAlignment = textAlignment;
@@ -184,10 +167,6 @@ static BOOL IsPresenting;
     self.completion = completion;
     [self adjustLayout];
     
-    if (!self.statusBarView.backgroundColor) {
-        self.statusBarView.backgroundColor = self.view.backgroundColor;
-    }
-    
     if ([self.delegate respondsToSelector:@selector(willPresentNZAlertView:)]) {
         [self.delegate willPresentNZAlertView:self];
     }
@@ -209,14 +188,6 @@ static BOOL IsPresenting;
     
     NSInteger index = [[application keyWindow].subviews count];
     
-    if (!application.statusBarHidden) {
-        frame = self.statusBarView.frame;
-        frame.origin.y = CGRectGetMinY(self.frame);
-        self.statusBarView.frame = frame;
-        
-        [[application keyWindow] insertSubview:self.statusBarView atIndex:index];
-    }
-    
     [[application keyWindow] insertSubview:self atIndex:index];
     [[application keyWindow] insertSubview:self.backgroundBlackView atIndex:index];
     [[application keyWindow] insertSubview:self.backgroundView atIndex:index];
@@ -224,12 +195,8 @@ static BOOL IsPresenting;
     CGRect viewFrame = self.view.frame;
     viewFrame.origin.y = [self originY];
     
-    CGRect statusBarFrame = self.statusBarView.frame;
-    statusBarFrame.origin.y = 0;
-    
     [UIView animateWithDuration:kAnimateDuration animations:^{
         self.frame = viewFrame;
-        self.statusBarView.frame = statusBarFrame;
         self.backgroundView.alpha = 1;
         self.backgroundBlackView.alpha = 1;
     } completion:^(BOOL finished) {
@@ -287,17 +254,12 @@ static BOOL IsPresenting;
     CGRect viewFrame = self.view.frame;
     viewFrame.origin.y = -(CGRectGetHeight(self.view.frame) + [self originY]);
     
-    CGRect statusBarFrame = self.statusBarView.frame;
-    statusBarFrame.origin.y -= [self originY];
-    
     [UIView animateWithDuration:kAnimateDuration animations:^{
         self.frame = viewFrame;
-        self.statusBarView.frame = statusBarFrame;
         self.backgroundView.alpha = 0;
         self.backgroundBlackView.alpha = 0;
     } completion:^(BOOL finished) {
         if (finished) {
-            [self.statusBarView removeFromSuperview];
             [self.backgroundBlackView removeFromSuperview];
             [self.backgroundView removeFromSuperview];
             [self removeFromSuperview];
@@ -328,5 +290,5 @@ static BOOL IsPresenting;
     
     return originY;
 }
-
+ 
 @end
