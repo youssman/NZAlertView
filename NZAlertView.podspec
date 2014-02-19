@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   
   s.authors = { 'Bruno Tortato Furtado' => 'bruno.furtado@gruponzn.com'}
   
-  s.dependency 'UIImage-Helpers', '~> 0.0.2'
+  s.dependency 'UIImage-Helpers'
   s.source_files = 'NZAlertView/**/*.{h,m}'
   s.resources = ['NZAlertView/NZAlertView-Icons.bundle', 'NZAlertView/Views/NZAlertView.xib']
   s.source = { :git => 'https://github.com/NZN/NZAlertView.git', :tag => '0.0.6' }
