@@ -26,6 +26,7 @@ static BOOL IsPresenting;
 @property (strong, nonatomic) IBOutlet UIImageView *imgIcon;
 
 @property (strong, nonatomic) UIView *statusBarView;
+@property (strong, nonatomic) UIView *backgroundBlackView;
 @property (strong, nonatomic) UIImageView *backgroundView;
 @property (strong, nonatomic) NZAlertViewCompletion completion;
 
@@ -63,14 +64,17 @@ static BOOL IsPresenting;
         
         frame = [[UIScreen mainScreen] bounds];
         self.backgroundView = [[UIImageView alloc] initWithFrame:frame];
-        self.backgroundView.userInteractionEnabled = YES;
+        
+        self.backgroundBlackView = [[UIView alloc] initWithFrame:frame];
+        self.backgroundBlackView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.2f];
+        self.backgroundBlackView.userInteractionEnabled = YES;
         
         frame = self.view.frame;
         frame.size.height = CGRectGetHeight([[UIApplication sharedApplication] statusBarFrame]);
         self.statusBarView = [[UIView alloc] initWithFrame:frame];
 
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
-        [self.backgroundView addGestureRecognizer:gesture];
+        [self.backgroundBlackView addGestureRecognizer:gesture];
     }
     
     return self;
@@ -201,6 +205,8 @@ static BOOL IsPresenting;
     self.backgroundView.image = blurredSnapshot;
     self.backgroundView.alpha = 0;
     
+    self.backgroundBlackView.alpha = 0;
+    
     NSInteger index = [[application keyWindow].subviews count];
     
     if (!application.statusBarHidden) {
@@ -212,6 +218,7 @@ static BOOL IsPresenting;
     }
     
     [[application keyWindow] insertSubview:self atIndex:index];
+    [[application keyWindow] insertSubview:self.backgroundBlackView atIndex:index];
     [[application keyWindow] insertSubview:self.backgroundView atIndex:index];
     
     CGRect viewFrame = self.view.frame;
@@ -224,6 +231,7 @@ static BOOL IsPresenting;
         self.frame = viewFrame;
         self.statusBarView.frame = statusBarFrame;
         self.backgroundView.alpha = 1;
+        self.backgroundBlackView.alpha = 1;
     } completion:^(BOOL finished) {
         if (finished) {
             if ([self.delegate respondsToSelector:@selector(didPresentNZAlertView:)]) {
@@ -286,9 +294,11 @@ static BOOL IsPresenting;
         self.frame = viewFrame;
         self.statusBarView.frame = statusBarFrame;
         self.backgroundView.alpha = 0;
+        self.backgroundBlackView.alpha = 0;
     } completion:^(BOOL finished) {
         if (finished) {
             [self.statusBarView removeFromSuperview];
+            [self.backgroundBlackView removeFromSuperview];
             [self.backgroundView removeFromSuperview];
             [self removeFromSuperview];
             
