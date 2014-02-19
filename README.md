@@ -4,11 +4,11 @@ Simple and intuitive alert view. Similar to push notification effect.
 This class uses UIAlertView default methods and protocols.
 
 <p align="center">
-  <img src="http://s8.postimg.org/ebibmu79x/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="500" height="250">
+  <img src="http://s14.postimg.org/rfqbn70qp/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="500" height="250">
 </p>
 <br/>
 <p align="center">
-  <a href="http://youtu.be/pViRzfq1GIk"><img src="http://s30.postimg.org/jeje4yc3l/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="500" height="300"></a>
+  <a href="http://youtu.be/FCZKKN5W9Cc"><img src="http://s10.postimg.org/9n918glqh/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="500" height="300"></a>
 </p>
 <br/>
 [![Build Status](https://api.travis-ci.org/NZN/NZAlertView.png)](https://api.travis-ci.org/NZN/NZAlertView.png)
