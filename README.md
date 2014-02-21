@@ -59,7 +59,6 @@ Alternatively you can directly add source files to your project.
 * Only works at __portrait mode__
 * The alert duration time can be modified (default: __5 seconds__)
 * The animation duration time can be modified (default: __0.6 seconds__)
-* The status bar color can be modified (default: __alert view color__)
 * The text alignment can be changed (default: __left alignment__)
 * Only 1 alert is displayed at a time
 * Delegates are similar to `UIAlertView`
@@ -83,7 +82,6 @@ Alternatively you can directly add source files to your project.
                                                     message:@"This is an alert example."
                                                    delegate:nil];
                                                    
-    [alert setStatusBarColor:[UIColor greenColor]];
     [alert setTextAlignment:NSTextAlignmentCenter];
 
 	[alert show];      
@@ -121,7 +119,6 @@ Alternatively you can directly add source files to your project.
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, readonly, getter = isVisible) BOOL visible;
-@property (nonatomic, copy) UIColor *statusBarColor;
 @property (nonatomic) NSTextAlignment textAlignment;
 ```
 
