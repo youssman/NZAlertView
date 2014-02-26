@@ -28,8 +28,6 @@ static BOOL IsPresenting;
 
 - (void)adjustLayout;
 
-- (void)hide;
-
 - (CGRect)frameForLabel:(UILabel *)label;
 
 - (CGFloat)originY;

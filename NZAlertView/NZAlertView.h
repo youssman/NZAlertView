@@ -60,5 +60,6 @@ typedef void(^NZAlertViewCompletion)(void);
 
 - (void)show;
 - (void)showWithCompletion:(NZAlertViewCompletion)completion;
+- (void)hide;
 
 @end
