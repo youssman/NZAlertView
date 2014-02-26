@@ -101,8 +101,6 @@ static BOOL IsPresenting;
         if ([delegate conformsToProtocol:@protocol(NZAlertViewDelegate)]) {
             self.delegate = delegate;
         }
-        
-        [self defaultDurationsAndLevels];
     }
     
     return self;
