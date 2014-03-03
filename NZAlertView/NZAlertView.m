@@ -28,6 +28,8 @@ static BOOL IsPresenting;
 
 - (void)adjustLayout;
 
+- (void)defaultDurationsAndLevels;
+
 - (CGRect)frameForLabel:(UILabel *)label;
 
 - (CGFloat)originY;
@@ -108,6 +110,39 @@ static BOOL IsPresenting;
 
 #pragma mark -
 #pragma mark - Public methods
+
+- (void)hide
+{
+    if ([self.delegate respondsToSelector:@selector(NZAlertViewWillDismiss:)]) {
+        [self.delegate NZAlertViewWillDismiss:self];
+    }
+    
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y = -(CGRectGetHeight(self.view.frame) + [self originY]);
+    
+    [UIView animateWithDuration:_animationDuration animations:^{
+        self.frame = viewFrame;
+        self.backgroundView.alpha = 0;
+        self.backgroundBlackView.alpha = 0;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [self.backgroundBlackView removeFromSuperview];
+            [self.backgroundView removeFromSuperview];
+            [self removeFromSuperview];
+            
+            IsPresenting = NO;
+            
+            if ([self.delegate respondsToSelector:@selector(NZAlertViewDidDismiss:)]) {
+                [self.delegate NZAlertViewDidDismiss:self];
+            }
+            
+            if (self.completion) {
+                self.completion();
+                self.completion = nil;
+            }
+        }
+    }];
+}
 
 - (void)setAlertViewStyle:(NZAlertStyle)alertViewStyle
 {
@@ -230,6 +265,13 @@ static BOOL IsPresenting;
     self.view.frame = frame;
 }
 
+- (void)defaultDurationsAndLevels
+{
+    self.alertDuration = 5.0f;
+    self.animationDuration = 0.6f;
+    self.screenBlurLevel = 0.6f;
+}
+
 - (CGRect)frameForLabel:(UILabel *)label
 {
     CGFloat height = [label.text sizeWithFont:label.font
@@ -240,39 +282,6 @@ static BOOL IsPresenting;
     frame.size.height = height;
     
     return frame;
-}
-
-- (void)hide
-{
-    if ([self.delegate respondsToSelector:@selector(NZAlertViewWillDismiss:)]) {
-        [self.delegate NZAlertViewWillDismiss:self];
-    }
-    
-    CGRect viewFrame = self.view.frame;
-    viewFrame.origin.y = -(CGRectGetHeight(self.view.frame) + [self originY]);
-    
-    [UIView animateWithDuration:_animationDuration animations:^{
-        self.frame = viewFrame;
-        self.backgroundView.alpha = 0;
-        self.backgroundBlackView.alpha = 0;
-    } completion:^(BOOL finished) {
-        if (finished) {
-            [self.backgroundBlackView removeFromSuperview];
-            [self.backgroundView removeFromSuperview];
-            [self removeFromSuperview];
-            
-            IsPresenting = NO;
-            
-            if ([self.delegate respondsToSelector:@selector(NZAlertViewDidDismiss:)]) {
-                [self.delegate NZAlertViewDidDismiss:self];
-            }
-            
-            if (self.completion) {
-                self.completion();
-                self.completion = nil;
-            }
-        }
-    }];
 }
 
 - (CGFloat)originY
@@ -286,13 +295,6 @@ static BOOL IsPresenting;
     }
     
     return originY;
-}
-
-- (void)defaultDurationsAndLevels
-{
-    self.alertDuration = 5.0f;
-    self.animationDuration = 0.6f;
-    self.screenBlurLevel = 0.6f;
 }
  
 @end
