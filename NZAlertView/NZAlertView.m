@@ -12,9 +12,6 @@
 #import "UIImage+Blur.h"
 #import "UIImage+Screenshot.h"
 
-static float const kAlertDuration = 5.f;
-static float const kAnimateDuration = .6f;
-static float const kBlurParameter = .6f;
 static BOOL IsPresenting;
 
 
@@ -30,8 +27,6 @@ static BOOL IsPresenting;
 @property (strong, nonatomic) NZAlertViewCompletion completion;
 
 - (void)adjustLayout;
-
-- (void)hide;
 
 - (CGRect)frameForLabel:(UILabel *)label;
 
@@ -70,6 +65,8 @@ static BOOL IsPresenting;
         
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
         [self.backgroundBlackView addGestureRecognizer:gesture];
+        
+        [self defaultDurationsAndLevels];
     }
     
     return self;
@@ -179,7 +176,7 @@ static BOOL IsPresenting;
     
     UIImage *screenshot = [UIImage screenshot];
     NSData *imageData = UIImageJPEGRepresentation(screenshot, .0001);
-    UIImage *blurredSnapshot = [[UIImage imageWithData:imageData] blurredImage:kBlurParameter];
+    UIImage *blurredSnapshot = [[UIImage imageWithData:imageData] blurredImage:_screenBlurLevel];
     
     self.backgroundView.image = blurredSnapshot;
     self.backgroundView.alpha = 0;
@@ -195,7 +192,7 @@ static BOOL IsPresenting;
     CGRect viewFrame = self.view.frame;
     viewFrame.origin.y = [self originY];
     
-    [UIView animateWithDuration:kAnimateDuration animations:^{
+    [UIView animateWithDuration:_animationDuration animations:^{
         self.frame = viewFrame;
         self.backgroundView.alpha = 1;
         self.backgroundBlackView.alpha = 1;
@@ -205,7 +202,7 @@ static BOOL IsPresenting;
                 [self.delegate didPresentNZAlertView:self];
             }
             
-            [self performSelector:@selector(hide) withObject:nil afterDelay:kAlertDuration];
+            [self performSelector:@selector(hide) withObject:nil afterDelay:_alertDuration];
         }
     }];
 }
@@ -254,7 +251,7 @@ static BOOL IsPresenting;
     CGRect viewFrame = self.view.frame;
     viewFrame.origin.y = -(CGRectGetHeight(self.view.frame) + [self originY]);
     
-    [UIView animateWithDuration:kAnimateDuration animations:^{
+    [UIView animateWithDuration:_animationDuration animations:^{
         self.frame = viewFrame;
         self.backgroundView.alpha = 0;
         self.backgroundBlackView.alpha = 0;
@@ -289,6 +286,13 @@ static BOOL IsPresenting;
     }
     
     return originY;
+}
+
+- (void)defaultDurationsAndLevels
+{
+    self.alertDuration = 5.0f;
+    self.animationDuration = 0.6f;
+    self.screenBlurLevel = 0.6f;
 }
  
 @end
