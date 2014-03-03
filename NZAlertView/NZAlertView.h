@@ -58,8 +58,9 @@ typedef void(^NZAlertViewCompletion)(void);
             message:(NSString *)message
            delegate:(id)delegate;
 
+- (void)hide;
+
 - (void)show;
 - (void)showWithCompletion:(NZAlertViewCompletion)completion;
-- (void)hide;
 
 @end
