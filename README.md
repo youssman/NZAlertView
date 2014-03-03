@@ -115,11 +115,17 @@ Alternatively you can directly add source files to your project.
 
 ```objetive-c
 @property (nonatomic, assign) id delegate;
+
 @property (nonatomic, assign) NZAlertStyle alertViewStyle;
+
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, readonly, getter = isVisible) BOOL visible;
 @property (nonatomic) NSTextAlignment textAlignment;
+
+@property (nonatomic, assign) CGFloat alertDuration;
+@property (nonatomic, assign) CGFloat animationDuration;
+@property (nonatomic, assign) CGFloat screenBlurLevel;
 ```
 
 ###Images and colors
