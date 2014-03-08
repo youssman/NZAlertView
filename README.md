@@ -14,6 +14,7 @@ This class uses UIAlertView default methods and protocols.
 [![Build Status](https://api.travis-ci.org/NZN/NZAlertView.png)](https://api.travis-ci.org/NZN/NZAlertView.png)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/v/NZAlertView/badge.png)](http://beta.cocoapods.org/?q=NZAlertView)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/p/NZAlertView/badge.png)](http://beta.cocoapods.org/?q=NZAlertView)
+[![Analytics](https://ga-beacon.appspot.com/UA-48753665-1/NZN/NZAlertView/README.md)](https://github.com/igrigorik/ga-beacon)
 
 ## Requirements
 
