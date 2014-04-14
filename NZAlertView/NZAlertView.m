@@ -62,7 +62,7 @@ static BOOL IsPresenting;
         self.backgroundView = [[UIImageView alloc] initWithFrame:frame];
         
         self.backgroundBlackView = [[UIView alloc] initWithFrame:frame];
-        self.backgroundBlackView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.2f];
+        self.backgroundBlackView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.1f];
         self.backgroundBlackView.userInteractionEnabled = YES;
         
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
