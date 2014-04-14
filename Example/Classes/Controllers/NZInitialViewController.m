@@ -101,7 +101,7 @@
     NZAlertView *alert = [[NZAlertView alloc] initWithStyle:self.alertStyle
                                              //statusBarColor:[UIColor purpleColor]
                                                       title:@"Alert View"
-                                                    message:@"This is an alert example."
+                                                    message:@"This is an alert example for NZAlertView for iOS."
                                                    delegate:self];
     
     alert.screenBlurLevel = 1;
