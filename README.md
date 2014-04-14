@@ -18,7 +18,7 @@ This class uses UIAlertView default methods and protocols.
 
 ## Requirements
 
-NZAlertView works on iOS 5.0+ version and is compatible with ARC projects. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
+NZAlertView works on iOS 6.0+ version and is compatible with ARC projects. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
 
 * Foundation.framework
 
