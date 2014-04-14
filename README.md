@@ -4,7 +4,7 @@ Simple and intuitive alert view. Similar to push notification effect.
 This class uses UIAlertView default methods and protocols.
 
 <p align="center">
-  <img src="http://s8.postimg.org/3tfqfv245/NZAlert_View.jpg" alt="NZAlertView" title="NZAlertView" width="500" height="500">
+  <img src="http://s22.postimg.org/sfgwg4ixd/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="461" height="422">
 </p>
 <br/>
 <p align="center">
