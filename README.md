@@ -149,3 +149,7 @@ A brief summary of each NZAlertView release can be found on the [wiki](https://g
 ###Orientation
 
 - Support for landscape mode
+
+###Design
+
+- Add style with buttons
