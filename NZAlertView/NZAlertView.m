@@ -21,6 +21,7 @@ static BOOL IsPresenting;
 @property (strong, nonatomic) IBOutlet UILabel *lbTitle;
 @property (strong, nonatomic) IBOutlet UILabel *lbMessage;
 @property (strong, nonatomic) IBOutlet UIImageView *imgIcon;
+@property (strong, nonatomic) IBOutlet UIImageView *imgShadow;
 
 @property (strong, nonatomic) UIView *backgroundBlackView;
 @property (strong, nonatomic) UIImageView *backgroundView;
@@ -67,6 +68,8 @@ static BOOL IsPresenting;
         
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
         [self.backgroundBlackView addGestureRecognizer:gesture];
+        
+        self.imgShadow.image = [UIImage imageNamed:@"NZAlertView-Icons.bundle/BottomShadow"];
         
         [self defaultDurationsAndLevels];
     }

@@ -20,7 +20,7 @@
 
 + (UIColor *)infoColor
 {
-    return [UIColor colorWithRed:0.988 green:0.306 blue:0.180 alpha:1.000];
+    return [UIColor colorWithRed:1 green:0.517 blue:0 alpha:1.000];
 }
 
 + (UIColor *)successColor

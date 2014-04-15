@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NZAlertView">
             <connections>
                 <outlet property="imgIcon" destination="nXK-cq-fah" id="WcJ-9t-7af"/>
+                <outlet property="imgShadow" destination="WGg-HG-ckY" id="vuV-fc-Omc"/>
                 <outlet property="lbMessage" destination="dyE-FE-n9z" id="niw-hY-3Yy"/>
                 <outlet property="lbTitle" destination="iP6-EJ-CuC" id="D8m-K5-1ey"/>
                 <outlet property="view" destination="1" id="Ceg-rd-TED"/>
@@ -71,7 +71,7 @@
                         <constraint firstAttribute="trailing" secondItem="dyE-FE-n9z" secondAttribute="trailing" constant="10" id="u6a-rl-UXx"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BottomShadow" translatesAutoresizingMaskIntoConstraints="NO" id="WGg-HG-ckY">
+                <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WGg-HG-ckY" userLabel="Image View - Shadow">
                     <rect key="frame" x="0.0" y="84" width="320" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -93,7 +93,4 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
-    <resources>
-        <image name="BottomShadow" width="640" height="7"/>
-    </resources>
 </document>
