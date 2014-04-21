@@ -153,3 +153,4 @@ A brief summary of each NZAlertView release can be found on the [wiki](https://g
 ###Design
 
 - Add style with buttons
+- Create a `NZAlertStyleCustom` style
