@@ -61,6 +61,7 @@ static BOOL IsPresenting;
         
         frame = [[UIScreen mainScreen] bounds];
         self.backgroundView = [[UIImageView alloc] initWithFrame:frame];
+        self.backgroundView.backgroundColor = [UIColor clearColor];
         
         self.backgroundBlackView = [[UIView alloc] initWithFrame:frame];
         self.backgroundBlackView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.1f];
@@ -217,12 +218,17 @@ static BOOL IsPresenting;
     CGRect frame = self.frame;
     frame.origin.y = -([self originY] + CGRectGetHeight(self.view.frame));
     self.frame = frame;
-    
-    UIImage *screenshot = [UIImage screenshot];
-    NSData *imageData = UIImageJPEGRepresentation(screenshot, .0001);
-    UIImage *blurredSnapshot = [[UIImage imageWithData:imageData] blurredImage:_screenBlurLevel];
-    
-    self.backgroundView.image = blurredSnapshot;
+
+    if (self.screenBlurLevel > 0) {
+        UIImage *screenshot = [UIImage screenshot];
+        NSData *imageData = UIImageJPEGRepresentation(screenshot, .0001);
+        UIImage *blurredSnapshot = [[UIImage imageWithData:imageData] blurredImage:_screenBlurLevel];
+
+        self.backgroundView.image = blurredSnapshot;
+    } else {
+        self.backgroundView.image = nil;
+    }
+
     self.backgroundView.alpha = 0;
     
     self.backgroundBlackView.alpha = 0;
