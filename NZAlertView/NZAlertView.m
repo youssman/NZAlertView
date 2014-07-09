@@ -29,6 +29,8 @@ static BOOL IsPresenting;
 
 - (void)adjustLayout;
 
+- (void)applicationWillResignActive;
+
 - (void)defaultDurationsAndLevels;
 
 - (CGRect)frameForLabel:(UILabel *)label;
@@ -49,6 +51,11 @@ static BOOL IsPresenting;
     self = [super init];
     
     if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationWillResignActive)
+                                                     name:UIApplicationWillResignActiveNotification
+                                                   object:nil];
+        
         [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class])
                                       owner:self
                                     options:nil];
@@ -118,6 +125,8 @@ static BOOL IsPresenting;
 
 - (void)hide
 {
+    IsPresenting = NO;
+    
     if ([self.delegate respondsToSelector:@selector(NZAlertViewWillDismiss:)]) {
         [self.delegate NZAlertViewWillDismiss:self];
     }
@@ -135,8 +144,6 @@ static BOOL IsPresenting;
             [self.backgroundView removeFromSuperview];
             [self removeFromSuperview];
             
-            IsPresenting = NO;
-            
             if ([self.delegate respondsToSelector:@selector(NZAlertViewDidDismiss:)]) {
                 [self.delegate NZAlertViewDidDismiss:self];
             }
@@ -145,6 +152,8 @@ static BOOL IsPresenting;
                 self.completion();
                 self.completion = nil;
             }
+            
+            [[NSNotificationCenter defaultCenter] removeObserver:self];
         }
     }];
 }
@@ -279,6 +288,13 @@ static BOOL IsPresenting;
     frame = self.view.frame;
     frame.size.height = CGRectGetMaxY(self.lbMessage.frame) + messageToBottom;
     self.view.frame = frame;
+}
+
+- (void)applicationWillResignActive
+{
+    if (IsPresenting == YES) {
+        [self hide];
+    }
 }
 
 - (void)defaultDurationsAndLevels
