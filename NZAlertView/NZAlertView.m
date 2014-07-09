@@ -288,6 +288,7 @@ static BOOL IsPresenting;
     self.screenBlurLevel = 0.6f;
 }
 
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 - (CGRect)frameForLabel:(UILabel *)label
 {
     CGSize size;
