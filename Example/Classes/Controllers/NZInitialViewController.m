@@ -99,12 +99,10 @@
 - (IBAction)showAlertClicked
 {    
     NZAlertView *alert = [[NZAlertView alloc] initWithStyle:self.alertStyle
-                                             //statusBarColor:[UIColor purpleColor]
                                                       title:@"Alert View"
                                                     message:@"This is an alert example for NZAlertView for iOS."
                                                    delegate:self];
     
-    [alert setStatusBarColor:[UIColor colorWithRed:0.897 green:0.324 blue:0.044 alpha:1.000]];
     //alert.screenBlurLevel = 1;
     //[alert setTextAlignment:NSTextAlignmentCenter];
     
