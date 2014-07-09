@@ -290,9 +290,27 @@ static BOOL IsPresenting;
 
 - (CGRect)frameForLabel:(UILabel *)label
 {
-    CGFloat height = [label.text sizeWithFont:label.font
-                            constrainedToSize:CGSizeMake(CGRectGetWidth(label.frame), 9999)
-                                lineBreakMode:NSLineBreakByTruncatingTail].height;
+    CGSize size;
+    CGFloat height = 0;
+    
+    if ([label.text respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+        paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+        
+        NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:label.font,
+                                    NSFontAttributeName,
+                                    paragraphStyle,
+                                    NSParagraphStyleAttributeName, nil];
+        
+        height = [label.text boundingRectWithSize:size
+                                          options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin
+                                       attributes:attributes
+                                          context:nil].size.height;
+    } else {
+        height = [label.text sizeWithFont:label.font
+                        constrainedToSize:size
+                            lineBreakMode:NSLineBreakByTruncatingTail].height;
+    }
     
     CGRect frame = label.frame;
     frame.size.height = height;
