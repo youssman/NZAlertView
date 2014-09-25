@@ -252,9 +252,8 @@ static BOOL IsPresenting;
             if ([self.delegate respondsToSelector:@selector(didPresentNZAlertView:)]) {
                 [self.delegate didPresentNZAlertView:self];
             }
-            
-            [self performSelector:@selector(hide) withObject:nil afterDelay:_alertDuration];
         }
+        [self performSelector:@selector(hide) withObject:nil afterDelay:_alertDuration];
     }];
 }
 
