@@ -1,3 +1,4 @@
 language: objective-c
-before_install:
- - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+xcode_workspace: NZAlertView.xcworkspace
+xcode_scheme: NZAlertView
+xcode_sdk: iphonesimulator
