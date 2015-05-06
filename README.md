@@ -11,7 +11,7 @@ This class uses UIAlertView default methods and protocols.
   <a href="http://youtu.be/FCZKKN5W9Cc"><img src="http://s10.postimg.org/9n918glqh/NZAlert_View.png" alt="NZAlertView" title="NZAlertView" width="500" height="300"></a>
 </p>
 <br/>
-[![Build Status](https://api.travis-ci.org/NZN/NZAlertView.png)](https://api.travis-ci.org/NZN/NZAlertView.png)
+[![Build Status](https://travis-ci.org/NZN/NZAlertView.svg?branch=master)](https://travis-ci.org/NZN/NZAlertView)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/v/NZAlertView/badge.png)](http://beta.cocoapods.org/?q=NZAlertView)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/p/NZAlertView/badge.png)](http://beta.cocoapods.org/?q=NZAlertView)
 [![Analytics](https://ga-beacon.appspot.com/UA-48753665-1/NZN/NZAlertView/README.md)](https://github.com/igrigorik/ga-beacon)
@@ -73,7 +73,7 @@ Alternatively you can directly add source files to your project.
 
 ###Show
 
-```objetive-c
+```objc
 #import "NZAlertView.h"
 ...
 {
@@ -100,7 +100,7 @@ Alternatively you can directly add source files to your project.
 
 * All delegates are optional
 
-```objetive-c
+```objc
 #import "NZAlertViewDelegate.h"
 ...
 
@@ -114,7 +114,7 @@ Alternatively you can directly add source files to your project.
 
 ###Setters and getters
 
-```objetive-c
+```objc
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, assign) NZAlertStyle alertViewStyle;
 @property (nonatomic, copy) NSString *title;
