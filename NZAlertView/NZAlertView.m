@@ -54,9 +54,9 @@ static BOOL IsPresenting;
                                     options:nil];
         
         CGRect frame = self.view.frame;
-        frame.size.width = CGRectGetWidth([[UIScreen mainScreen] bounds]);
+        frame = CGRectMake(0,-20,[[UIScreen mainScreen] bounds].size.width, 170);
         self.view.frame = frame;
-        self.view.translatesAutoresizingMaskIntoConstraints = NO;
+        self.view.translatesAutoresizingMaskIntoConstraints = YES;
         
         [self addSubview:self.view];
         
